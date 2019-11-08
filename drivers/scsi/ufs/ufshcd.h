@@ -546,6 +546,12 @@ enum ufshcd_quirks {
 	 * ops (get_ufs_hci_version) to get the correct version.
 	 */
 	UFSHCD_QUIRK_BROKEN_UFS_HCI_VERSION		= 1 << 5,
+
+	/*
+	 * This quirk needs to be enabled if the host controller advertises
+	 * inline encryption support but it doesn't work correctly.
+	 */
+	UFSHCD_QUIRK_BROKEN_CRYPTO			 = 1 << 7,
 };
 
 enum ufshcd_caps {
