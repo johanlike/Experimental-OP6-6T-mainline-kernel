@@ -1920,8 +1920,8 @@ static int pwm_setup_backlight(struct intel_connector *connector,
 		return retval;
 	}
 
-	level = DIV_ROUND_UP(pwm_get_duty_cycle(panel->backlight.pwm) * 100,
-			     CRC_PMIC_PWM_PERIOD_NS);
+	level = DIV64_U64_ROUND_UP(pwm_get_duty_cycle(panel->backlight.pwm) * 100,
+				   CRC_PMIC_PWM_PERIOD_NS);
 	panel->backlight.level =
 		intel_panel_compute_brightness(connector, level);
 	panel->backlight.enabled = panel->backlight.level != 0;
