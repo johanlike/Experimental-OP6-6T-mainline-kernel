@@ -419,12 +419,8 @@ int ext4_mpage_readpages(struct address_space *mapping,
 			bio = bio_alloc(GFP_KERNEL,
 				min_t(int, nr_pages, BIO_MAX_PAGES));
 			ext4_set_bio_post_read_ctx(bio, inode, page->index);
-			if (fscrypt_set_bio_crypt_ctx(bio, inode, next_block,
-						      GFP_KERNEL) != 0) {
-				bio_put(bio);
-				bio = NULL;
-				goto set_error_page;
-			}
+			fscrypt_set_bio_crypt_ctx(bio, inode, next_block,
+						  GFP_KERNEL);
 			bio_set_dev(bio, bdev);
 			bio->bi_iter.bi_sector = blocks[0] << (blkbits - 9);
 			bio->bi_end_io = mpage_end_io;
