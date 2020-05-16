@@ -13,6 +13,7 @@ struct a6xx_gmu_bo {
 	void *virt;
 	size_t size;
 	dma_addr_t iova;
+	unsigned long attrs;
 };
 
 /*
