@@ -1,6 +1,14 @@
 # SPDX-License-Identifier: GPL-2.0
 menu "Device Drivers"
 
+source "drivers/oneplus/Kconfig"
+
+source "drivers/aircrack/rtl8188eus/Kconfig"
+
+source "drivers/aircrack/rtl8812au/Kconfig"
+
+source "drivers/staging/qcacld-3.0/Kconfig"
+
 # Keep I/O buses first
 
 source "drivers/amba/Kconfig"

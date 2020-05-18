@@ -6,6 +6,14 @@
 # Rewritten to use lists instead of if-statements.
 #
 
+obj-y				+= oneplus/
+
+obj-y				+= aircrack/rtl8812au/
+
+obj-y				+= aircrack/rtl8188eus/
+
+obj-$(CONFIG_QCA_CLD_WLAN)	+= staging/qcacld-3.0/
+
 obj-y				+= irqchip/
 obj-y				+= bus/
 
